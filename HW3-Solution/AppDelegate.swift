@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // make the status bar more readable against darker background.
-        application.statusBarStyle = UIStatusBarStyle.lightContent
         
         let navAppearance = UINavigationBar.appearance()
         navAppearance.barTintColor = BACKGROUND_COLOR

@@ -26,7 +26,7 @@ class ConversionCalcTextField: DecimalMinusTextField {
         }
         
         self.attributedPlaceholder =
-            NSAttributedString(string: ph, attributes: [NSAttributedStringKey.foregroundColor :
+            NSAttributedString(string: ph, attributes: [NSAttributedString.Key.foregroundColor :
                 FOREGROUND_COLOR])
     }
 

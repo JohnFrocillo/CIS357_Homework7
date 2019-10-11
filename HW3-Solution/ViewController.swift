@@ -100,8 +100,6 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             currentMode = .Volume
             fromUnits.text = VolumeUnit.Gallons.rawValue
             toUnits.text = VolumeUnit.Liters.rawValue
-//            fromField.placeholder =
-//            toField.placeholder = "Enter volume in \(toUnits.text!)"
             fromField.attributedPlaceholder =
                 NSAttributedString(string: "Enter volume in \(fromUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
                     FOREGROUND_COLOR])
@@ -112,8 +110,6 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             currentMode = .Length
             fromUnits.text = LengthUnit.Yards.rawValue
             toUnits.text = LengthUnit.Meters.rawValue
-//            fromField.placeholder = "Enter length in \(fromUnits.text!)"
-//            toField.placeholder = "Enter length in \(toUnits.text!)"
             fromField.attributedPlaceholder =
                 NSAttributedString(string: "Enter length in \(fromUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
                     FOREGROUND_COLOR])
@@ -137,7 +133,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             }
         }
     }
-    
+
     func settingsChanged(fromUnits: LengthUnit, toUnits: LengthUnit)
     {
         self.fromUnits.text = fromUnits.rawValue
