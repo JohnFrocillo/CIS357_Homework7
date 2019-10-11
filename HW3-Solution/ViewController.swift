@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SettingsViewControllerDelegate {
 
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         toField.delegate = self
         fromField.delegate = self
+        self.view.backgroundColor = BACKGROUND_COLOR
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,19 +100,55 @@ class ViewController: UIViewController {
             currentMode = .Volume
             fromUnits.text = VolumeUnit.Gallons.rawValue
             toUnits.text = VolumeUnit.Liters.rawValue
-            fromField.placeholder = "Enter length in \(fromUnits.text!)"
-            toField.placeholder = "Enter length in \(toUnits.text!)"
+//            fromField.placeholder =
+//            toField.placeholder = "Enter volume in \(toUnits.text!)"
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: "Enter volume in \(fromUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
+                    FOREGROUND_COLOR])
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: "Enter volume in \(toUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
+                    FOREGROUND_COLOR])
         case .Volume:
             currentMode = .Length
             fromUnits.text = LengthUnit.Yards.rawValue
             toUnits.text = LengthUnit.Meters.rawValue
-            fromField.placeholder = "Enter volume in \(fromUnits.text!)"
-            toField.placeholder = "Enter volume in \(toUnits.text!)"
+//            fromField.placeholder = "Enter length in \(fromUnits.text!)"
+//            toField.placeholder = "Enter length in \(toUnits.text!)"
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: "Enter length in \(fromUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
+                    FOREGROUND_COLOR])
+            fromField.attributedPlaceholder =
+                NSAttributedString(string: "Enter length in \(toUnits.text!)", attributes: [NSAttributedString.Key.foregroundColor :
+                    FOREGROUND_COLOR])
         }
+
         calculatorHeader.text = "\(currentMode.rawValue) Conversion Calculator"
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsSegue" {
+            clearPressed(sender as! UIButton)
+            if let  target = segue.destination.children[0] as? SettingsViewController {
+                target.mode = currentMode
+                target.fUnits = fromUnits.text
+                target.tUnits = toUnits.text
+                target.delegate = self
+            }
+        }
+    }
+    
+    func settingsChanged(fromUnits: LengthUnit, toUnits: LengthUnit)
+    {
+        self.fromUnits.text = fromUnits.rawValue
+        self.toUnits.text = toUnits.rawValue
+    }
+    
+    func settingsChanged(fromUnits: VolumeUnit, toUnits: VolumeUnit)
+    {
+        self.fromUnits.text = fromUnits.rawValue
+        self.toUnits.text = toUnits.rawValue
+    }
 }
 
 extension ViewController : UITextFieldDelegate {
@@ -123,39 +160,4 @@ extension ViewController : UITextFieldDelegate {
         }
     }
 }
-
-struct LengthConversionKey : Hashable {
-    var toUnits : LengthUnit
-    var fromUnits : LengthUnit
-}
-
-let lengthConversionTable : Dictionary<LengthConversionKey, Double> = [
-    LengthConversionKey(toUnits: .Meters, fromUnits: .Meters) : 1.0,
-    LengthConversionKey(toUnits: .Meters, fromUnits: .Yards) : 0.9144,
-    LengthConversionKey(toUnits: .Meters, fromUnits: .Miles) : 1609.34,
-    LengthConversionKey(toUnits: .Yards, fromUnits: .Meters) : 1.09361,
-    LengthConversionKey(toUnits: .Yards, fromUnits: .Yards) : 1.0,
-    LengthConversionKey(toUnits: .Yards, fromUnits: .Miles) : 1760.0,
-    LengthConversionKey(toUnits: .Miles, fromUnits: .Meters) : 0.000621371,
-    LengthConversionKey(toUnits: .Miles, fromUnits: .Yards) : 0.000568182,
-    LengthConversionKey(toUnits: .Miles, fromUnits: .Miles) : 1.0
-]
-
-struct VolumeConversionKey : Hashable {
-    var toUnits : VolumeUnit
-    var fromUnits : VolumeUnit
-}
-
-let volumeConversionTable : Dictionary<VolumeConversionKey, Double> = [
-    VolumeConversionKey(toUnits: .Liters, fromUnits: .Liters) : 1.0,
-    VolumeConversionKey(toUnits: .Liters, fromUnits: .Gallons) : 3.78541,
-    VolumeConversionKey(toUnits: .Liters, fromUnits: .Quarts) : 0.946353,
-    VolumeConversionKey(toUnits: .Gallons, fromUnits: .Liters) : 0.264172,
-    VolumeConversionKey(toUnits: .Gallons, fromUnits: .Gallons) : 1.0,
-    VolumeConversionKey(toUnits: .Gallons, fromUnits: .Quarts) : 0.25,
-    VolumeConversionKey(toUnits: .Quarts, fromUnits: .Liters) : 1.05669,
-    VolumeConversionKey(toUnits: .Quarts, fromUnits: .Gallons) : 4.0,
-    VolumeConversionKey(toUnits: .Quarts, fromUnits: .Quarts) : 1.0
-]
-
 

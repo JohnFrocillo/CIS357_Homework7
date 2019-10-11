@@ -16,6 +16,10 @@
 		9E1E65672142BF8900F4E8CB /* HW3_SolutionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65662142BF8900F4E8CB /* HW3_SolutionUITests.swift */; };
 		9E1E65752142C38700F4E8CB /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65742142C38700F4E8CB /* DecimalMinusTextField.swift */; };
 		9E1E65772142C53800F4E8CB /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65762142C53800F4E8CB /* UnitsAndModes.swift */; };
+		9E1E65792147122200F4E8CB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65782147122200F4E8CB /* SettingsViewController.swift */; };
+		9EE845AC215BE1590091EFE4 /* >??????¿.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE845AB215BE1590091EFE4 /* >??????¿.swift */; };
+		9EE845AE215BE2820091EFE4 /* ConversionCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE845AD215BE2820091EFE4 /* ConversionCalcLabel.swift */; };
+		9EE845B0215BE2AD0091EFE4 /* ConversionCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE845AF215BE2AD0091EFE4 /* ConversionCalcButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		9E1E65682142BF8900F4E8CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E1E65742142C38700F4E8CB /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		9E1E65762142C53800F4E8CB /* UnitsAndModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
+		9E1E65782147122200F4E8CB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9EE845AB215BE1590091EFE4 /* >??????¿.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ">??????¿.swift"; sourceTree = "<group>"; };
+		9EE845AD215BE2820091EFE4 /* ConversionCalcLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcLabel.swift; sourceTree = "<group>"; };
+		9EE845AF215BE2AD0091EFE4 /* ConversionCalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,10 @@
 				9E1E654F2142BF8900F4E8CB /* LaunchScreen.storyboard */,
 				9E1E65522142BF8900F4E8CB /* Info.plist */,
 				9E1E65762142C53800F4E8CB /* UnitsAndModes.swift */,
+				9E1E65782147122200F4E8CB /* SettingsViewController.swift */,
+				9EE845AB215BE1590091EFE4 /* >??????¿.swift */,
+				9EE845AD215BE2820091EFE4 /* ConversionCalcLabel.swift */,
+				9EE845AF215BE2AD0091EFE4 /* ConversionCalcButton.swift */,
 			);
 			path = "HW3-Solution";
 			sourceTree = "<group>";
@@ -199,13 +211,16 @@
 				TargetAttributes = {
 					9E1E65422142BF8800F4E8CB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1110;
 					};
 					9E1E65562142BF8900F4E8CB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 9E1E65422142BF8800F4E8CB;
 					};
 					9E1E65612142BF8900F4E8CB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1110;
 						TestTargetID = 9E1E65422142BF8800F4E8CB;
 					};
 				};
@@ -262,9 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE845AC215BE1590091EFE4 /* >??????¿.swift in Sources */,
 				9E1E65772142C53800F4E8CB /* UnitsAndModes.swift in Sources */,
+				9EE845B0215BE2AD0091EFE4 /* ConversionCalcButton.swift in Sources */,
 				9E1E65752142C38700F4E8CB /* DecimalMinusTextField.swift in Sources */,
+				9EE845AE215BE2820091EFE4 /* ConversionCalcLabel.swift in Sources */,
 				9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */,
+				9E1E65792147122200F4E8CB /* SettingsViewController.swift in Sources */,
 				9E1E65472142BF8800F4E8CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +327,7 @@
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		9E1E654F2142BF8900F4E8CB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -447,7 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-Solution";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -465,7 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-Solution";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -485,7 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-SolutionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HW3-Solution.app/HW3-Solution";
 			};
@@ -506,7 +526,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-SolutionTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HW3-Solution.app/HW3-Solution";
 			};
@@ -526,7 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-SolutionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "HW3-Solution";
 			};
@@ -546,7 +566,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.gvsu.cis.HW3-SolutionUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "HW3-Solution";
 			};
