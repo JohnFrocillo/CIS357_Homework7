@@ -16,6 +16,17 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var toUnits: UILabel!
     @IBOutlet weak var calculatorHeader: UILabel!
     
+    // default
+    //var entries : [Conversion] = []
+    
+    // pre-populate the data
+    var entries : [Conversion] = [
+            Conversion(fromVal: 1, toVal: 1760, mode: .Length, fromUnits: LengthUnit.Miles.rawValue, toUnits:
+    LengthUnit.Yards.rawValue, timestamp: Date.distantPast),
+            Conversion(fromVal: 1, toVal: 4, mode: .Volume, fromUnits: VolumeUnit.Gallons.rawValue, toUnits:
+    VolumeUnit.Quarts.rawValue, timestamp: Date.distantFuture)]
+
+    
     var currentMode : CalculatorMode = .Length
     
     override func viewDidLoad() {
@@ -84,7 +95,15 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
                 }
             }
         }
+        
+        //first make sure that at least one text field has data to avoid a crash or adding a blank entry
+        if !(fromField.text == "" || toField.text == "") {
+            //append the entry into the array
+            entries.append(Conversion(fromVal:Double(fromField.text!)!, toVal:Double(toField.text!)!, mode:currentMode, fromUnits:fromUnits.text!, toUnits:toUnits.text!, timestamp:Date()))
+        }
+        
         self.view.endEditing(true)
+
     }
     
     @IBAction func clearPressed(_ sender: UIButton) {
@@ -124,12 +143,23 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue" {
-            clearPressed(sender as! UIButton)
-            if let  target = segue.destination.children[0] as? SettingsViewController {
+            //perform actions of clear button pressed
+            self.fromField.text = ""
+            self.toField.text = ""
+            self.view.endEditing(true)
+            
+            if let  target = segue.destination as? SettingsViewController {
                 target.mode = currentMode
                 target.fUnits = fromUnits.text
                 target.tUnits = toUnits.text
                 target.delegate = self
+            }
+        }
+        
+        if segue.identifier == "historySegue" {
+            if let target = segue.destination as? HistoryTableViewController {
+                target.entries = self.entries
+                target.historyDelegate = self
             }
         }
     }
@@ -154,6 +184,15 @@ extension ViewController : UITextFieldDelegate {
         } else {
             toField.text = ""
         }
+    }
+}
+
+extension ViewController : HistoryTableViewControllerDelegate {
+    func selectEntry(entry: Conversion) {
+        fromField.text = "\(entry.fromVal)"
+        toField.text = "\(entry.toVal)"
+        fromUnits.text = "\(entry.fromUnits)"
+        toUnits.text = "\(entry.toUnits)"
     }
 }
 
