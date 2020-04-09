@@ -160,23 +160,3 @@ class HistoryTableViewController: UITableViewController {
     */
 
 }
-
-extension Date {
-    struct Formatter {
-        static let short: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd-yyyy"
-            return formatter
-        }()
-    }
-    
-    var short: String {
-        return Formatter.short.string(from: self)
-    }
-}
-
-extension String {
-    var dateFromShort: Date? {
-        return Date.Formatter.short.date(from:self)
-    }
-}

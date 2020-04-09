@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, SettingsViewControllerDelegate {
 
+    fileprivate var ref : DatabaseReference?
+    
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
     @IBOutlet weak var fromUnits: UILabel!
@@ -31,10 +34,37 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ref = Database.database().reference()
+        self.registerForFireBaseUpdates()
+        
         toField.delegate = self
         fromField.delegate = self
         self.view.backgroundColor = BACKGROUND_COLOR
     }
+    
+    fileprivate func registerForFireBaseUpdates()
+    {
+        self.ref!.child("history").observe(.value, with: { snapshot in
+            if let postDict = snapshot.value as? [String : AnyObject] {
+                var tmpItems = [Conversion]()
+                for (_,val) in postDict.enumerated() {
+                    let entry = val.1 as! Dictionary<String,AnyObject>
+                    let timestamp = entry["timestamp"] as! String?
+                    let origFromVal = entry["origFromVal"] as! Double?
+                    let origToVal = entry["origToVal"] as! Double?
+                    let origFromUnits = entry["origFromUnits"] as! String?
+                    let origToUnits = entry["origToUnits"] as! String?
+                    let origMode = entry["origMode"] as! String?
+                    
+                    tmpItems.append(Conversion(fromVal: origFromVal!, toVal: origToVal!, mode: CalculatorMode(rawValue: origMode!)!, fromUnits: origFromUnits!, toUnits: origToUnits!, timestamp: (timestamp?.dateFromISO8601)!))
+                }
+                self.entries = tmpItems
+            }
+        })
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -98,13 +128,33 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         
         //first make sure that at least one text field has data to avoid a crash or adding a blank entry
         if !(fromField.text == "" || toField.text == "") {
+            // save history to firebase
+            let entry = Conversion(fromVal: Double(fromField.text!)!, toVal: Double(toField.text!)!, mode: currentMode, fromUnits: fromUnits.text!, toUnits: toUnits.text!, timestamp: Date())
+            
+            let newChild = self.ref?.child("history").childByAutoId()
+                            newChild?.setValue(self.toDictionary(vals: entry))
+            
+            /*
             //append the entry into the array
             entries.append(Conversion(fromVal:Double(fromField.text!)!, toVal:Double(toField.text!)!, mode:currentMode, fromUnits:fromUnits.text!, toUnits:toUnits.text!, timestamp:Date()))
+            */
         }
         
         self.view.endEditing(true)
 
     }
+    
+    func toDictionary(vals: Conversion) -> NSDictionary {
+           return [
+               "timestamp": NSString(string: (vals.timestamp.iso8601)),
+               "origFromVal" : NSNumber(value: vals.fromVal),
+               "origToVal" : NSNumber(value: vals.toVal),
+               "origMode" : vals.mode.rawValue,
+               "origFromUnits" : vals.fromUnits,
+               "origToUnits" : vals.toUnits
+           ]
+       }
+
     
     @IBAction func clearPressed(_ sender: UIButton) {
         self.fromField.text = ""
@@ -195,4 +245,36 @@ extension ViewController : HistoryTableViewControllerDelegate {
         toUnits.text = "\(entry.toUnits)"
     }
 }
+
+extension Date {
+    struct Formatter {
+        static let iso8601: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.calendar = Calendar(identifier: .iso8601)
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+            return formatter
+        }()
+        
+        static let short: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter
+        }()
+    }
+    
+    var short: String {
+        return Formatter.short.string(from: self)
+    }
+    
+    var iso8601: String {
+        return Formatter.iso8601.string(from: self)
+    }
+}
+
+extension String {
+    var dateFromISO8601: Date? {
+        return Date.Formatter.iso8601.date(from: self)
+    }
+}
+
 
