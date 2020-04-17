@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		9E1E65472142BF8800F4E8CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65462142BF8800F4E8CB /* AppDelegate.swift */; };
 		9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65482142BF8800F4E8CB /* ViewController.swift */; };
 		9E1E654C2142BF8800F4E8CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E654A2142BF8800F4E8CB /* Main.storyboard */; };
-		9E1E654E2142BF8900F4E8CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E654D2142BF8900F4E8CB /* Assets.xcassets */; };
 		9E1E65512142BF8900F4E8CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E1E654F2142BF8900F4E8CB /* LaunchScreen.storyboard */; };
 		9E1E655C2142BF8900F4E8CB /* HW3_SolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E655B2142BF8900F4E8CB /* HW3_SolutionTests.swift */; };
 		9E1E65672142BF8900F4E8CB /* HW3_SolutionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1E65662142BF8900F4E8CB /* HW3_SolutionUITests.swift */; };
@@ -23,6 +22,9 @@
 		9EE845AE215BE2820091EFE4 /* ConversionCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE845AD215BE2820091EFE4 /* ConversionCalcLabel.swift */; };
 		9EE845B0215BE2AD0091EFE4 /* ConversionCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE845AF215BE2AD0091EFE4 /* ConversionCalcButton.swift */; };
 		AD5F16E388AD41215678733F /* Pods_HW3_Solution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF828446B4A728F755EA20E3 /* Pods_HW3_Solution.framework */; };
+		C84B57F524472C4300F4641A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84B57F424472C4300F4641A /* Assets.xcassets */; };
+		C84B57F724472CC600F4641A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B57F624472CC600F4641A /* Weather.swift */; };
+		C84B57F924472D8E00F4641A /* OpenWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B57F824472D8E00F4641A /* OpenWeatherService.swift */; };
 		C86914192423B92700AADDA6 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86914182423B92700AADDA6 /* Conversion.swift */; };
 		C869141B2423DD0000AADDA6 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C869141A2423DD0000AADDA6 /* HistoryTableViewController.swift */; };
 		C86A3D0E242A323D00366613 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86A3D0D242A323D00366613 /* HistoryTableViewCell.swift */; };
@@ -52,7 +54,6 @@
 		9E1E65462142BF8800F4E8CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E1E65482142BF8800F4E8CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E1E654B2142BF8800F4E8CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9E1E654D2142BF8900F4E8CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E1E65502142BF8900F4E8CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E1E65522142BF8900F4E8CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E1E65572142BF8900F4E8CB /* HW3-SolutionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HW3-SolutionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +71,9 @@
 		9EE845AF215BE2AD0091EFE4 /* ConversionCalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcButton.swift; sourceTree = "<group>"; };
 		BF828446B4A728F755EA20E3 /* Pods_HW3_Solution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW3_Solution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72B5DAEA697D9EC5604EAAA /* Pods-HW3-SolutionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW3-SolutionTests.release.xcconfig"; path = "Target Support Files/Pods-HW3-SolutionTests/Pods-HW3-SolutionTests.release.xcconfig"; sourceTree = "<group>"; };
+		C84B57F424472C4300F4641A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C84B57F624472CC600F4641A /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		C84B57F824472D8E00F4641A /* OpenWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherService.swift; sourceTree = "<group>"; };
 		C86914182423B92700AADDA6 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
 		C869141A2423DD0000AADDA6 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		C86A3D0D242A323D00366613 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,7 +153,7 @@
 				9E1E65482142BF8800F4E8CB /* ViewController.swift */,
 				9E1E654A2142BF8800F4E8CB /* Main.storyboard */,
 				9E1E65742142C38700F4E8CB /* DecimalMinusTextField.swift */,
-				9E1E654D2142BF8900F4E8CB /* Assets.xcassets */,
+				C84B57F424472C4300F4641A /* Assets.xcassets */,
 				9E1E654F2142BF8900F4E8CB /* LaunchScreen.storyboard */,
 				9E1E65522142BF8900F4E8CB /* Info.plist */,
 				9E1E65762142C53800F4E8CB /* UnitsAndModes.swift */,
@@ -160,6 +164,8 @@
 				C86914182423B92700AADDA6 /* Conversion.swift */,
 				C869141A2423DD0000AADDA6 /* HistoryTableViewController.swift */,
 				C86A3D0D242A323D00366613 /* HistoryTableViewCell.swift */,
+				C84B57F624472CC600F4641A /* Weather.swift */,
+				C84B57F824472D8E00F4641A /* OpenWeatherService.swift */,
 			);
 			path = "HW3-Solution";
 			sourceTree = "<group>";
@@ -192,7 +198,6 @@
 				F142F0B6A4EBCB1C1F2AC728 /* Pods-HW3-SolutionTests.debug.xcconfig */,
 				C72B5DAEA697D9EC5604EAAA /* Pods-HW3-SolutionTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,9 +313,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84B57F524472C4300F4641A /* Assets.xcassets in Resources */,
 				9E1E65512142BF8900F4E8CB /* LaunchScreen.storyboard in Resources */,
 				C8E82A9E243768F700E2504A /* GoogleService-Info.plist in Resources */,
-				9E1E654E2142BF8900F4E8CB /* Assets.xcassets in Resources */,
 				9E1E654C2142BF8800F4E8CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,12 +448,14 @@
 				9E1E65772142C53800F4E8CB /* UnitsAndModes.swift in Sources */,
 				9EE845B0215BE2AD0091EFE4 /* ConversionCalcButton.swift in Sources */,
 				C86914192423B92700AADDA6 /* Conversion.swift in Sources */,
+				C84B57F724472CC600F4641A /* Weather.swift in Sources */,
 				C869141B2423DD0000AADDA6 /* HistoryTableViewController.swift in Sources */,
 				9E1E65752142C38700F4E8CB /* DecimalMinusTextField.swift in Sources */,
 				9EE845AE215BE2820091EFE4 /* ConversionCalcLabel.swift in Sources */,
 				C86A3D0E242A323D00366613 /* HistoryTableViewCell.swift in Sources */,
 				9E1E65492142BF8800F4E8CB /* ViewController.swift in Sources */,
 				9E1E65792147122200F4E8CB /* SettingsViewController.swift in Sources */,
+				C84B57F924472D8E00F4641A /* OpenWeatherService.swift in Sources */,
 				9E1E65472142BF8800F4E8CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

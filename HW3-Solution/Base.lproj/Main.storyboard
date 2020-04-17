@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqW-7c-Dyw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iqW-7c-Dyw">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,20 +93,45 @@
                                     <action selector="modePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WQ7-1s-Vpg"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WeP-Lx-nNk">
+                                <rect key="frame" x="25" y="342" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="ANX-NQ-Jwq"/>
+                                    <constraint firstAttribute="height" constant="125" id="rnw-XL-cqp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q23-Vx-s0W" customClass="ConversionCalcLabel" customModule="HW3_Solution" customModuleProvider="target">
+                                <rect key="frame" x="158" y="342" width="99" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNj-eG-gMZ" customClass="ConversionCalcLabel" customModule="HW3_Solution" customModuleProvider="target">
+                                <rect key="frame" x="158" y="446.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FkS-0M-9Cw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="0Yh-rq-PVD"/>
+                            <constraint firstItem="WeP-Lx-nNk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="0fz-lc-SyR"/>
                             <constraint firstItem="ESU-NG-GOh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="37R-D7-JqY"/>
+                            <constraint firstItem="q23-Vx-s0W" firstAttribute="leading" secondItem="WeP-Lx-nNk" secondAttribute="trailing" constant="8" id="5JW-YQ-fU4"/>
                             <constraint firstItem="VWS-M1-UFv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="82T-Xb-zH6"/>
                             <constraint firstItem="YRX-AI-SSU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="9tL-0U-hWM"/>
+                            <constraint firstItem="WeP-Lx-nNk" firstAttribute="top" secondItem="YRX-AI-SSU" secondAttribute="bottom" constant="50" id="A0e-EY-IK7"/>
                             <constraint firstItem="YRX-AI-SSU" firstAttribute="top" secondItem="FkS-0M-9Cw" secondAttribute="bottom" constant="8" id="ASj-3N-biH"/>
                             <constraint firstItem="FkS-0M-9Cw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="EWl-Sd-pzL"/>
+                            <constraint firstItem="FNj-eG-gMZ" firstAttribute="leading" secondItem="WeP-Lx-nNk" secondAttribute="trailing" constant="8" id="I54-vw-tyI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FkS-0M-9Cw" secondAttribute="trailing" constant="8" id="RPK-5A-wlz"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YRX-AI-SSU" secondAttribute="trailing" constant="20" symbolic="YES" id="S7Z-FO-WsM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ESU-NG-GOh" secondAttribute="trailing" constant="8" id="Whj-oB-3jq"/>
                             <constraint firstItem="VWS-M1-UFv" firstAttribute="top" secondItem="FkS-0M-9Cw" secondAttribute="bottom" constant="8" id="apu-ZW-TdZ"/>
                             <constraint firstItem="YRX-AI-SSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="iDs-XR-Cyt"/>
+                            <constraint firstItem="FNj-eG-gMZ" firstAttribute="bottom" secondItem="WeP-Lx-nNk" secondAttribute="bottom" id="kgR-wq-g7W"/>
+                            <constraint firstItem="q23-Vx-s0W" firstAttribute="top" secondItem="WeP-Lx-nNk" secondAttribute="top" id="oaq-AH-wgz"/>
                             <constraint firstItem="ESU-NG-GOh" firstAttribute="top" secondItem="FkS-0M-9Cw" secondAttribute="bottom" constant="8" id="szB-CX-PXf"/>
                             <constraint firstItem="VWS-M1-UFv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="tL3-UQ-Y3T"/>
                             <constraint firstItem="ESU-NG-GOh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="vEY-1p-V67"/>
@@ -131,6 +156,9 @@
                         <outlet property="fromUnits" destination="l3t-W7-7RK" id="bI5-o3-bP4"/>
                         <outlet property="toField" destination="YHf-gl-luy" id="Gdf-lN-QHv"/>
                         <outlet property="toUnits" destination="72U-RS-LmZ" id="ZhZ-uu-S2e"/>
+                        <outlet property="weatherIcon" destination="WeP-Lx-nNk" id="Wbu-gg-XQc"/>
+                        <outlet property="weatherSummary" destination="FNj-eG-gMZ" id="uDn-KJ-BVv"/>
+                        <outlet property="weatherTemp" destination="q23-Vx-s0W" id="0A9-u4-f4q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

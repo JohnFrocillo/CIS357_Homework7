@@ -13,11 +13,17 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
 
     fileprivate var ref : DatabaseReference?
     
+    let wAPI = OpenWeatherService.getInstance()
+    
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var toField: UITextField!
     @IBOutlet weak var fromUnits: UILabel!
     @IBOutlet weak var toUnits: UILabel!
     @IBOutlet weak var calculatorHeader: UILabel!
+    
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var weatherTemp: ConversionCalcLabel!
+    @IBOutlet weak var weatherSummary: ConversionCalcLabel!
     
     // default
     //var entries : [Conversion] = []
@@ -41,6 +47,10 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         toField.delegate = self
         fromField.delegate = self
         self.view.backgroundColor = BACKGROUND_COLOR
+        
+        weatherIcon.image = nil
+        weatherTemp.text = ""
+        weatherSummary.text = ""
     }
     
     fileprivate func registerForFireBaseUpdates()
@@ -139,6 +149,18 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             entries.append(Conversion(fromVal:Double(fromField.text!)!, toVal:Double(toField.text!)!, mode:currentMode, fromUnits:fromUnits.text!, toUnits:toUnits.text!, timestamp:Date()))
             */
         }
+        
+        wAPI.getWeatherForLocation(forLocation: (42.963686, -85.888595)) { (weather) in
+            if let w = weather {
+                DispatchQueue.main.async {
+                    // Bind weather object attributes to the view
+                    self.weatherIcon.image = UIImage(named: w.iconName)
+                    self.weatherTemp.text = "\(w.temperature)"
+                    self.weatherSummary.text = "\(w.summary)"
+                }
+            }
+        }
+
         
         self.view.endEditing(true)
 
